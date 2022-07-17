@@ -1,0 +1,5 @@
+# Arquivos compilados
+build/*
+
+# Arquivos de teste
+teste/*
