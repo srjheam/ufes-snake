@@ -7,13 +7,19 @@
 #define TAM_MAPA 100
 #define ARQ_MAPA "/mapa.txt"
 
+#define CEL_VAZIA ' '
+#define CEL_PARED '#'
+#define CEL_COMID '*'
+#define CEL_DINHR '$'
+#define CEL_CBCBR '>'
+
 void combinaCaminho(char dest[], char const base[], char const arq[]);
 
 // MAPA
 typedef struct {
-    char mapa[TAM_MAPA];
     int nLinhas;
     int mColunas;
+    char arr[TAM_MAPA][TAM_MAPA];
 } tMapa;
 
 tMapa leMapa(char const caminhoBase[]);
@@ -57,6 +63,23 @@ tMapa leMapa(char const caminhoBase[]) {
         exit(EXIT_FAILURE);
     }
     
+    int n, m;
+    fscanf(arq, "%d %d%*c", &n, &m);
+    tMapa mapa = { n, m };
+
+    int i;
+    for (i = 0; i < n; i++) {
+        int j;
+        for (j = 0; j < m; j++) {
+            char curr;
+            fscanf(arq, "%c", &curr);
+            mapa.arr[i][j] = curr;
+        }
+        fscanf(arq, "%*c");
+    }
+    fclose(arq);
+
+    return mapa;
 }
 // FIM MAPA
 
