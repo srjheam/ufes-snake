@@ -11,9 +11,25 @@
 #define CEL_PARED '#'
 #define CEL_COMID '*'
 #define CEL_DINHR '$'
-#define CEL_CBCBR '>'
+#define CEL_CDCBR '>'
+#define CEL_CBCBR 'v'
+#define CEL_CECBR '<'
+#define CEL_CCCBR '^'
+#define CEL_COCBR 'o'
 
-void combinaCaminho(char dest[], char const base[], char const arq[]);
+#define JOG_EST_T 0
+
+// JOGO
+typedef struct {
+    tMapa mapa;
+    int pontuacao;
+    int estado;
+} tJogo;
+
+tJogo inicializaJogo(char const caminhoBase[]);
+int acabou(tJogo jogo);
+void imprimeJogo(tJogo jogo);
+// FIM JOGO
 
 // MAPA
 typedef struct {
@@ -23,16 +39,10 @@ typedef struct {
 } tMapa;
 
 tMapa leMapa(char const caminhoBase[]);
+void imprimeMapa(tMapa mapa);
 // FIM MAPA
 
-// JOGO
-typedef struct {
-    tMapa mapa;
-    
-} tJogo;
-
-tJogo inicializaJogo(char const caminhoBase[]);
-// FIM JOGO
+void combinaCaminho(char dest[], char const base[], char const arq[]);
 
 int main(int argc, char const *argv[]) {
     if (argc <= 1) {
@@ -40,17 +50,35 @@ int main(int argc, char const *argv[]) {
         return EXIT_FAILURE;
     }
     
-    char const *caminhoBase = argv[1];
+    char const caminhoBase[TAM_CAMINHO];
+    strcpy(caminhoBase, argv[1]);
+    
 
     tJogo jogo = inicializaJogo(caminhoBase);
+    do {
+
+    } while (!acabou(jogo));
 
     return EXIT_SUCCESS;
 }
 
-void combinaCaminho(char dest[], char const base[], char const arq[]) {
-    strcpy(dest, base);
-    strcat(dest, arq);
+// JOGO
+tJogo inicializaJogo(char const caminhoBase[]) {
+    tMapa mapa = leMapa(caminhoBase);
+
+    tJogo jogo = { mapa, 0, 0 };
+    return jogo;
 }
+
+int acabou(tJogo jogo) {
+    return jogo.estado != JOG_EST_T;
+}
+
+void imprimeJogo(tJogo jogo) {
+    imprimeMapa(jogo.mapa);
+    printf("Pontuacao: %d\n", jogo.pontuacao);
+}
+// FIM JOGO
 
 // MAPA
 tMapa leMapa(char const caminhoBase[]) {
@@ -81,13 +109,20 @@ tMapa leMapa(char const caminhoBase[]) {
 
     return mapa;
 }
+
+void imprimeMapa(tMapa mapa) {
+    int i;
+    for (i = 0; i < mapa.nLinhas; i++) {
+        int j;
+        for (j = 0; j < mapa.mColunas; j++) {
+            printf("%c", mapa.arr[i][j]);
+        }
+        printf("%c", '\n');
+    }
+}
 // FIM MAPA
 
-// JOGO
-tJogo inicializaJogo(char const caminhoBase[]) {
-    tMapa mapa = leMapa(caminhoBase);
-
-    tJogo jogo = { mapa };
-    return jogo;
+void combinaCaminho(char dest[], char const base[], char const arq[]) {
+    strcpy(dest, base);
+    strcat(dest, arq);
 }
-// FIM JOGO
