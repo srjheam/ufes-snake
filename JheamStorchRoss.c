@@ -46,6 +46,7 @@ typedef struct {
 tCobra inicializaCobra(tPosicao posCab, char direcaoInicial);
 tPosicao adquireCabeca(tCobra cobra);
 int adquireDirecao(tCobra cobra);
+tCobra defineDirecao(tCobra cobra, int direcao);
 // FIM COBRA
 
 // MAPA
@@ -254,50 +255,51 @@ tMapa fazMovimento(tMapa mapa, char movimento) {
     int direcao = adquireDirecao(mapa.cobra);
 
     // adquire os respectivos deltas para o que tende
-    // a ser a posicao apos dado movimento
+    // a ser a posicao apos dado movimento e define a
+    // nova direcao da cobra
     int dI = 0, dJ = 0;
-    if (direcao == CBR_DIR_N) {
-        if (movimento == MOV_CBRCT) {
-            dJ = -1;
-        }
-        else if (movimento == MOV_CBRHO) {
-            dI = 1;
-        }
-        else if (movimento == MOV_CBRAH) {
+    if (movimento == MOV_CBRCT) {
+        if (direcao == CBR_DIR_N) {
             dI = -1;
         }
-    }
-    else if (direcao == CBR_DIR_L) {
-        if (movimento == MOV_CBRCT) {
-            dI = 1;
-        }
-        else if (movimento == MOV_CBRHO) {
+        else if (direcao == CBR_DIR_L) {
             dJ = 1;
         }
-        else if (movimento == MOV_CBRAH) {
+        else if (direcao == CBR_DIR_S) {
+            dI = 1;
+        }
+        else if (direcao == CBR_DIR_O) {
             dJ = -1;
         }
     }
-    else if (direcao == CBR_DIR_S) {
-        if (movimento == MOV_CBRCT) {
+    else if (movimento == MOV_CBRHO) {
+        if (direcao == CBR_DIR_N) {
             dJ = 1;
         }
-        else if (movimento == MOV_CBRHO) {
-            dI = -1;
-        }
-        else if (movimento == MOV_CBRAH) {
+        else if (direcao == CBR_DIR_L) {
             dI = 1;
         }
-    }
-    else if (direcao == CBR_DIR_O) {
-        if (movimento == MOV_CBRCT) {
-            dI = -1;
-        }
-        else if (movimento == MOV_CBRHO) {
+        else if (direcao == CBR_DIR_S) {
             dJ = -1;
         }
-        else if (movimento == MOV_CBRAH) {
+        else if (direcao == CBR_DIR_O) {
+            dI = -1;
+        }
+
+        mapa.cobra = defineDirecao(mapa.cobra, );
+    }
+    else if (movimento == MOV_CBRAH) {
+        if (direcao == CBR_DIR_N) {
+            dJ = -1;
+        }
+        else if (direcao == CBR_DIR_L) {
+            dI = -1;
+        }
+        else if (direcao == CBR_DIR_S) {
             dJ = 1;
+        }
+        else if (direcao == CBR_DIR_O) {
+            dI = 1;
         }
     }
 
@@ -355,6 +357,11 @@ tPosicao adquireCabeca(tCobra cobra) {
 
 int adquireDirecao(tCobra cobra) {
     return cobra.direcaoCabeca;
+}
+
+tCobra defineCobra(tCobra cobra, int direcao) {
+    cobra.direcaoCabeca = direcao;
+    return cobra;
 }
 // FIM COBRA
 
