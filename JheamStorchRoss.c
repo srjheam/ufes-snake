@@ -184,7 +184,7 @@ tFila desenfileira(tFila fila);
  */
 #define CBR_EST_V 1
 /**
- * @brief Representa a cobra do jogo
+ * @brief Representa a cobra no mapa
  * 
  */
 typedef struct {
@@ -227,54 +227,54 @@ tFila adquireCorpo(tCobra cobra);
  */
 int adquireDirecao(tCobra cobra);
 /**
- * @brief 
+ * @brief Define @p direcao como a direcao para a @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @param direcao 
- * @return tCobra 
+ * @param direcao A nova direcao
+ * @return tCobra A @ref tCobra com a nova direcao
  * @related tCobra
  */
 tCobra defineDirecao(tCobra cobra, int direcao);
 /**
- * @brief 
+ * @brief Adquire a ultima celula devorada pela @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @return char 
+ * @return char A celula devorada pela @ref tCobra
  * @related tCobra
  */
 char adquireDevorado(tCobra cobra);
 /**
- * @brief 
+ * @brief Adquire o estado atual da @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @return int 
- * @related tCobra
+ * @return int O estado, sendo @ref CBR_EST_V para VIVA; @ref CBR_EST_M , para MORTA
+ * @related tCobra 
  */
 int adquireEstado(tCobra cobra);
 /**
- * @brief 
+ * @brief Define @p estado como o estado para a @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @param estado 
- * @return tCobra 
+ * @param estado O novo estado
+ * @return tCobra A @ref tCobra com o novo estado
  * @related tCobra 
  */
 tCobra defineEstado(tCobra cobra, int estado);
 /**
- * @brief 
+ * @brief Adquire o tamanho atual da @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @return int 
+ * @return int O tamanho da @ref tCobra somando sua cabeca com seu corpo
  * @related tCobra
  */
 int adquireTamanho(tCobra cobra);
 /**
- * @brief 
+ * @brief Move a cabeca da @ref tCobra para a @ref tPosicao @p pos , atualizando tambem os membros estado, devorado, tamanho e o corpo da @ref tCobra @p cobra
  * 
  * @param cobra A @ref tCobra
- * @param pos 
- * @param celDevorado 
- * @return tCobra 
+ * @param pos A nova posicao da cabeca da @ref tCobra
+ * @param celDevorado A celula que foi devorada no processo de movimento
+ * @return tCobra A @ref tCobra com a posicao da cabeca e do corpo e os membros estado, devorado e tamanho atualizados durante o moviemento
  * @related tCobra
  */
 tCobra moveCbr(tCobra cobra, tPosicao pos, char celDevorado);
@@ -282,37 +282,116 @@ tCobra moveCbr(tCobra cobra, tPosicao pos, char celDevorado);
 // FIM COBRA
 // MAPA
 
+/**
+ * @brief Contem o tamanho maximo para ambas as dimensoes do mapa
+ * @related tMapa
+ */
 #define TAM_MAPA 100
+/**
+ * @brief Contem o nome do arquivo que contem o mapa a ser lido
+ * @related tMapa
+ */
 #define ARQ_MAPA "/mapa.txt"
+/**
+ * @brief Contem o nome do arquivo de saida para a exportacao do heatmap
+ * @related tMapa
+ */
 #define ARQ_HMAP "/heatmap.txt"
+/**
+ * @brief Contem o nome do arquivo de saida para a exportacao do ranking do heatmap
+ * @related tMapa
+ */
 #define ARQ_RANK "/ranking.txt"
-
+/**
+ * @brief Contem a representacao para uma celula vazia no mapa
+ * @related tMapa
+ */
 #define CEL_VAZIA ' '
+/**
+ * @brief Contem a representacao para uma celula de parede no mapa
+ * @related tMapa
+ */
 #define CEL_PARED '#'
+/**
+ * @brief Contem a representacao para uma celula de tunel no mapa
+ * @related tMapa
+ */
 #define CEL_TUNEL '@'
+/**
+ * @brief Contem a representacao para uma celula de comida no mapa
+ * @related tMapa
+ */
 #define CEL_COMID '*'
+/**
+ * @brief Contem a representacao para uma celula de dinheiro no mapa
+ * @related tMapa
+ */
 #define CEL_DINHR '$'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de cabeca da cobra com direcao para a direita
+ * @related tMapa
+ */
 #define CEL_CBRCD '>'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de cabeca da cobra com direcao para baixo
+ * @related tMapa
+ */
 #define CEL_CBRCB 'v'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de cabeca da cobra com direcao para a esquerda
+ * @related tMapa
+ */
 #define CEL_CBRCE '<'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de cabeca da cobra com direcao para cima
+ * @related tMapa
+ */
 #define CEL_CBRCC '^'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de corpo da cobra
+ * @related tMapa
+ */
 #define CEL_CBRCO 'o'
+/**
+ * @brief Contem a representacao, no mapa, para uma celula de cobra morta
+ * @related tMapa
+ */
 #define CEL_CBRCM 'X'
-
+/**
+ * @brief Contem a representacao para o comando de movimento "continua na direcao"
+ * @related tMapa
+ */
 #define MOV_CBRCT 'c'
+/**
+ * @brief Contem a representacao para o comando de movimento "horario"
+ * @related tMapa
+ */
 #define MOV_CBRHO 'h'
+/**
+ * @brief Contem a representacao para o comando de movimento "antihorario"
+ * @related tMapa
+ */
 #define MOV_CBRAH 'a'
-
+/**
+ * @brief Representa o mapa no jogo
+ * 
+ */
 typedef struct {
-    int nLinhas;
-    int mColunas;
-    char vet[TAM_MAPA][TAM_MAPA];
-    tCobra cobra;
-    tFila tuneis;
-    int qtdComida;
-    int heatmap[TAM_MAPA][TAM_MAPA];
+    int nLinhas; ///< Numero de linhas que o mapa possui
+    int mColunas; ///< Numero de colunas que o mapa possui
+    char vet[TAM_MAPA][TAM_MAPA]; ///< A matriz bidimensional de dimensoes nLinhas x mColunas que contem o mapa
+    tCobra cobra; ///< A cobra que esta no mapa
+    tFila tuneis; ///< A dupla de tuneis que pode estar no mapa
+    int qtdComida; ///< A quatidade de comidas que resta no mapa
+    int heatmap[TAM_MAPA][TAM_MAPA]; ///< O heatmap de posicoes no mapa. Representa as posicoes do mapa pelo numero de acessos da cobra
 } tMapa;
-
+/**
+ * @brief Le um mapa no arquivo @ref ARQ_MAPA dentro do diretorio @p caminhoBase informado
+ * 
+ * @param caminhoBase O diretorio onde deve estar o arquivo que contem o mapa a ser lido
+ * @return tMapa Uma nova instancia de @ref tMapa baseada no arquivo lido
+ * @related tMapa
+ */
 tMapa leMapa(char caminhoBase[]);
 int adquireLinhas(tMapa mapa);
 int adquireColunas(tMapa mapa);
@@ -330,9 +409,10 @@ tMapa atualizaMapa(tMapa mapa);
 void exportaHeatmap(tMapa mapa, char caminhoBase[]);
 void exportaRanking(tMapa mapa, char caminhoBase[]);
 void imprimeMapa(tMapa mapa);
-// FIM MAPA
 
+// FIM MAPA
 // ESTATISTICAS
+
 #define ARQ_STTS "estatisticas.txt"
 
 typedef struct {
@@ -348,9 +428,10 @@ tEstatisticas inicializaEstatisticas();
 int adquireQtdMovimentos(tEstatisticas estatisticas);
 tEstatisticas atualizaEstatisticas(tEstatisticas estatisticas, tCobra cobra);
 void geraArqEstatisticas(tEstatisticas estatisticas, char caminhoBase[]);
-// FIM ESTATISTICAS
 
+// FIM ESTATISTICAS
 // JOGO
+
 #define JOG_PNT_D 10
 #define JOG_PNT_C 1
 
