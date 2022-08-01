@@ -1,5 +1,7 @@
 # Arquivos compilados
 build/*
+main
 
 # Arquivos de teste
-teste/*
+Testes/
+Gabarito/
