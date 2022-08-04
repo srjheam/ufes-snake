@@ -393,64 +393,261 @@ typedef struct {
  * @related tMapa
  */
 tMapa leMapa(char caminhoBase[]);
+/**
+ * @brief Adquire a quandidade de linhas do @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @return int A quantidade total de linhas do @p tMapa
+ * @related tMapa
+ */
 int adquireLinhas(tMapa mapa);
+/**
+ * @brief Adquire a quandidade de colunas do @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @return int A quantidade total de colunas do @p tMapa
+ * @related tMapa
+ */
 int adquireColunas(tMapa mapa);
+/**
+ * @brief Adquire a cobra no @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @return int A cobra do @p tMapa
+ * @related tMapa
+ */
 tCobra adquireCobra(tMapa mapa);
+/**
+ * @brief Adquire a quandidade de comida restante no @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @return int A quantidade comida restante do @p tMapa
+ * @related tMapa
+ */
 int adquireQtdComida(tMapa mapa);
+/**
+ * @brief Adquire a celula do @ref tMapa @p mapa na @ref tPosicao @p pos
+ * 
+ * @param mapa O @ref tMapa
+ * @param pos A @ref tPosicao onde esta a celula a ser adquirida
+ * @return int A celula localizada na @p tPos dentro do @p tMapa
+ * @related tMapa
+ */
 char adquireCel(tMapa mapa, tPosicao pos);
+/**
+ * @brief Define a celula do @ref tMapa @p mapa na @ref tPosicao @p pos como @p cel
+ * 
+ * @param mapa O @ref tMapa
+ * @param pos A @ref tPosicao onde esta a celula a ser adquirida
+ * @return int A celula localizada na @p tPos dentro do @p tMapa
+ * @related tMapa
+ */
 tMapa defineCel(tMapa mapa, tPosicao pos, char cel);
+/**
+ * @brief Adquire o par do tunel no @ref tMapa @p mapa na @ref tPosicao @p pos
+ * 
+ * @param mapa O @ref tMapa
+ * @param pos A @ref tPosicao que contem o tunel para o qual sera adquirido o par
+ * @return tPosicao O par do tunel em @p pos no @p tMapa
+ * @related tMapa
+ */
 tPosicao adquireParTunel(tMapa mapa, tPosicao pos);
+/**
+ * @brief Verifica se a @ref tPosicao @p pos esta dentro do @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @param pos A @r/**
+ * @brief Exporta o ranking do @ref tMapa @p mapa para o arquivo @ref ARQ_RANK no diretorio @p caminhoBase
+ * 
+ * @param mapa O @ref tMapa
+ * @param caminhoBase O diretorio para onde sera salvo o ranking
+ * @related tMapa
+ * tPosicao que pode,  ou nao, estar dentro do @ref tMapa
+ * @return int Verdadeiro, se @p pos esta dentros dos limites do @p mapa ; caso contrario, falso
+ * @related tMapa
+ */
 int estaDentroLimite(tMapa mapa, tPosicao pos);
+/**
+ * @brief Verifica se a @ref tPosicao @p pos eh valida dentro do @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @param pos A @ref tPosicao que pode ser invalida, ou seja, pode estar fora dos limites do mapa ou esta em uma celula de mapa
+ * @return int Verdadeiro, caso @p pos seja valida; caso contrario, falso
+ * @related tMapa
+ */
 int ehPosicaoValida(tMapa mapa, tPosicao pos);
+/**
+ * @brief Transforma a @ref tPosicao @p pos em sua respectiva posicao equivalente
+ * 
+ * @param mapa O @ref tMapa
+ * @param posicao A @ref tPosicao a ser transformada
+ * @return tPosicao A posicao equivalente e valida a @p pos ; caso @p pos seja valida, retorna ela mesma
+ * @related tMapa
+ */
 tPosicao transformaPosicaoValida(tMapa mapa, tPosicao posicao);
+/**
+ * @brief Executa o @p movimento da @ref tCobra no @ref tMapa @p mapa
+ * 
+ * @param mapa O @ref tMapa
+ * @param movimento O movimento a ser efetuado
+ * @return tMapa O @ref tMapa com o movimento executado
+ * @related tMapa
+ */
 tMapa fazMovimento(tMapa mapa, char movimento);
+/**
+ * @brief Limpa o @ref tMapa @p mapa de elementos dinamicos, no caso sua @ref tCobra
+ * 
+ * @param mapa O @ref tMapa
+ * @return tMapa O @ref tMapa sem elementos dinamicos em suas celulas
+ * @related tMapa
+ */
 tMapa limpaMapa(tMapa mapa);
+/**
+ * @brief Atualiza o @ref tMapa @p mapa com os elementos dinamicos, no caso sua @ref tCobra
+ * 
+ * @param mapa O @ref tMapa
+ * @return tMapa O @ref tMapa com os elementos dinamicos em suas celulas
+ * @related tMapa
+ */
 tMapa atualizaMapa(tMapa mapa);
+/**
+ * @brief Exporta o heatmap do @ref tMapa @p mapa para o arquivo @ref ARQ_HMAP no diretorio @p caminhoBase
+ * 
+ * @param mapa O @ref tMapa
+ * @param caminhoBase O diretorio para onde sera salvo o heatmap
+ * @related tMapa
+ */
 void exportaHeatmap(tMapa mapa, char caminhoBase[]);
+/**
+ * @brief Exporta o ranking do @ref tMapa @p mapa para o arquivo @ref ARQ_RANK no diretorio @p caminhoBase
+ * 
+ * @param mapa O @ref tMapa
+ * @param caminhoBase O diretorio para onde sera salvo o ranking
+ * @related tMapa
+ */
 void exportaRanking(tMapa mapa, char caminhoBase[]);
+/**
+ * @brief Imprime o @ref tMapa @p mapa para a saida padrao
+ * 
+ * @param mapa O @ref tMapa
+ * @related tMapa
+ */
 void imprimeMapa(tMapa mapa);
 
 // FIM MAPA
 // ESTATISTICAS
 
+/**
+ * @brief Contem o nome do arquivo de saida para a exportacao das estatisticas
+ * @related tEstatisticas
+ */
 #define ARQ_STTS "estatisticas.txt"
-
+/**
+ * @brief Representa as estatisticas do jogo
+ * @related tEstatisticas
+ */
 typedef struct {
-    int qtdMov;
-    int qtdNPntMov;
-    int qtdMovC;
-    int qtdMovD;
-    int qtdMovB;
-    int qtdMovE;
+    int qtdMov; ///< A quantidade de movimentos efetuados
+    int qtdNPntMov; ///< A quantidade de movimentos efetuados que nao pontuaram
+    int qtdMovC; ///< A quantidade de movimentos para cima
+    int qtdMovD; ///< A quantidade de movimentos para a direita
+    int qtdMovB; ///< A quantidade de movimentos para baixo
+    int qtdMovE; ///< A quantidade de movimentos para a esquerda
 } tEstatisticas;
-
+/**
+ * @brief Inicializa uma struct do tipo @ref tEstatisticas
+ * 
+ * @return tEstatisticas Uma nova instancia de @ref tEstatisticas
+ * @related tEstatisticas
+ */
 tEstatisticas inicializaEstatisticas();
+/**
+ * @brief Adquire a quantidade de movimentos efetuados da @ref tEstatisticas @p estatisticas
+ * 
+ * @param estatisticas A @ref tEstatisticas
+ * @return int A quantidade de movimentos efetuados
+ * @related tEstatisticas
+ */
 int adquireQtdMovimentos(tEstatisticas estatisticas);
+/**
+ * @brief Atualiza as @ref tEstatisticas @p estatisticas baseado no movimento efetuado pela @ref tCobra @p cobra
+ * 
+ * @param estatisticas A @ref tEstatisticas
+ * @param cobra A @ref tCobra
+ * @return tEstatisticas O novo estado atualizado da @p estatisticas
+ * @related tEstatisticas
+ */
 tEstatisticas atualizaEstatisticas(tEstatisticas estatisticas, tCobra cobra);
-void geraArqEstatisticas(tEstatisticas estatisticas, char caminhoBase[]);
+/**
+ * @brief Exporta a @ref tEstatisticas @p estatisticas para o arquivo @ref ARQ_STTS no diretorio @p caminhoBase
+ * 
+ * @param estatisticas A @ref tEstatisticas
+ * @param caminhoBase O diretorio para onde sera salvo a @p estatisticas
+ * @related tEstatisticas
+ */
+void exportaEstatisticas(tEstatisticas estatisticas, char caminhoBase[]);
 
 // FIM ESTATISTICAS
 // JOGO
 
+/**
+ * @brief Contem a quantidade de pontos que valem as celulas @ref CEL_DINHR
+ * @related tJogo
+ */
 #define JOG_PNT_D 10
+/**
+ * @brief Contem a quantidade de pontos que valem as celulas @ref CEL_COMID
+ * @related tJogo
+ */
 #define JOG_PNT_C 1
-
+/**
+ * @brief Contem a representacao para o estado continua do jogo
+ * @related tJogo
+ */
 #define JOG_EST_C 0
+/**
+ * @brief Contem a representacao para o estado vitoria do jogo
+ * @related tJogo
+ */
 #define JOG_EST_V 1
+/**
+ * @brief Contem a representacao para o estado derrota do jogo
+ * @related tJogo
+ */
 #define JOG_EST_D 2
-
+/**
+ * @brief Contem o diretorio de saida para os arquivos
+ * @related tJogo
+ */
 #define DIR_SAID "/saida/"
+/**
+ * @brief Contem o nome do arquivo de saida para a exportacao da inicializacao
+ * @related tJogo
+ */
 #define ARQ_INIC "/inicializacao.txt"
+/**
+ * @brief Contem o nome do arquivo de saida para a exportacao do resumo
+ * @related tJogo
+ */
 #define ARQ_RESM "/resumo.txt"
-
+/**
+ * @brief Representa o jogo snake
+ * 
+ */
 typedef struct {
-    tMapa mapa;
-    int pontuacao;
-    int estado;
-    tEstatisticas estatisticas;
-    char caminhoSaida[TAM_CAMINHO];
+    tMapa mapa; ///< O mapa
+    int pontuacao; ///< A pontuacao atual
+    int estado; ///< O estado atual do jogo que pode ser @ref JOG_EST_C , @ref JOG_EST_V ou @ref JOG_EST_D
+    tEstatisticas estatisticas; ///< As estatisticas do jogo
+    char caminhoSaida[TAM_CAMINHO]; ///< O caminho de saida para os arquivos do jogo
 } tJogo;
-
+/**
+ * @brief 
+ * 
+ * @param caminhoBase 
+ * @return tJogo 
+ * @related tJogo
+ */
 tJogo inicializaJogo(char caminhoBase[]);
 int acabou(tJogo jogo);
 tJogo fazRodada(tJogo jogo, char movimento);
@@ -585,7 +782,7 @@ void geraArqInicializacao(tJogo jogo, char caminhoBase[]) {
 }
 
 void exportaJogo(tJogo jogo, char caminhoBase[]) {
-    geraArqEstatisticas(jogo.estatisticas, caminhoBase);
+    exportaEstatisticas(jogo.estatisticas, caminhoBase);
     exportaHeatmap(jogo.mapa, caminhoBase);
     exportaRanking(jogo.mapa, caminhoBase);
 }
@@ -650,7 +847,7 @@ tEstatisticas atualizaEstatisticas(tEstatisticas estatisticas, tCobra cobra) {
     return estatisticas;
 }
 
-void geraArqEstatisticas(tEstatisticas estatisticas, char caminhoBase[]) {
+void exportaEstatisticas(tEstatisticas estatisticas, char caminhoBase[]) {
     char caminhoStts[TAM_CAMINHO];
     combinaCaminho(caminhoStts, caminhoBase, ARQ_STTS);
     FILE *arq = fopen(caminhoStts, "w");
