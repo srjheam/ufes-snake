@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ufes-snake: Referência do Arquivo JheamStorchRoss.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">ufes-snake
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo JheamStorchRoss.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Jogo snake contruido em C.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para JheamStorchRoss.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="JheamStorchRoss_8c__incl.png" border="0" usemap="#JheamStorchRoss_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtPosicao.html">tPosicao</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa uma posicao em uma matriz bidimensional.  <a href="structtPosicao.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtFila.html">tFila</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa uma estrultura de dados fila, de fluxo FIFO.  <a href="structtFila.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtCobra.html">tCobra</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa a cobra no mapa.  <a href="structtCobra.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtMapa.html">tMapa</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa o mapa no jogo.  <a href="structtMapa.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtEstatisticas.html">tEstatisticas</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa as estatisticas do jogo.  <a href="structtEstatisticas.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtJogo.html">tJogo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa o jogo snake.  <a href="structtJogo.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a2ef6663ecb63d7087872715ec851b198"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="JheamStorchRoss_8c.html#a2ef6663ecb63d7087872715ec851b198">TAM_CAMINHO</a>&#160;&#160;&#160;1001</td></tr>
+<tr class="memdesc:a2ef6663ecb63d7087872715ec851b198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contem o tamanho maximo para um caminho suportado pelo programa.  <a href="JheamStorchRoss_8c.html#a2ef6663ecb63d7087872715ec851b198">Mais...</a><br /></td></tr>
+<tr class="separator:a2ef6663ecb63d7087872715ec851b198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a971197219696ffbc1a139a4eb40804c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="JheamStorchRoss_8c.html#a971197219696ffbc1a139a4eb40804c6">combinaCaminho</a> (char dest[], char cmnh1[], char cmnh2[])</td></tr>
+<tr class="memdesc:a971197219696ffbc1a139a4eb40804c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combina os caminhos <code>cmnh1</code> e <code>cmnh2</code> no caminho <code>dest</code>.  <a href="JheamStorchRoss_8c.html#a971197219696ffbc1a139a4eb40804c6">Mais...</a><br /></td></tr>
+<tr class="separator:a971197219696ffbc1a139a4eb40804c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top"><a id="abf9e6b7e6f15df4b525a2e7705ba3089"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char const *argv[])</td></tr>
+<tr class="separator:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a149910c06e94d4ad4240c630fe90ac68"><td class="memItemLeft" align="right" valign="top"><a id="a149910c06e94d4ad4240c630fe90ac68"></a>
+<a class="el" href="structtJogo.html">tJogo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaJogo</b> (char caminhoBase[])</td></tr>
+<tr class="separator:a149910c06e94d4ad4240c630fe90ac68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab522e161bca4da3fbb37baf722377059"><td class="memItemLeft" align="right" valign="top"><a id="ab522e161bca4da3fbb37baf722377059"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>acabou</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo)</td></tr>
+<tr class="separator:ab522e161bca4da3fbb37baf722377059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33522914ff5e4de4d4fd3ede2da74fb5"><td class="memItemLeft" align="right" valign="top"><a id="a33522914ff5e4de4d4fd3ede2da74fb5"></a>
+<a class="el" href="structtJogo.html">tJogo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fazRodada</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo, char movimento)</td></tr>
+<tr class="separator:a33522914ff5e4de4d4fd3ede2da74fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4805b664fa11b85724268f8babb8b842"><td class="memItemLeft" align="right" valign="top"><a id="a4805b664fa11b85724268f8babb8b842"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaResumo</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo, int currMov, <a class="el" href="structtCobra.html">tCobra</a> cobra, char movimento)</td></tr>
+<tr class="separator:a4805b664fa11b85724268f8babb8b842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b8c1ae2b6952336d169bdab820a2e9"><td class="memItemLeft" align="right" valign="top"><a id="a56b8c1ae2b6952336d169bdab820a2e9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaInicializacao</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo)</td></tr>
+<tr class="separator:a56b8c1ae2b6952336d169bdab820a2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4d0d5cb5a0130dc630c8d04347e60a0"><td class="memItemLeft" align="right" valign="top"><a id="ae4d0d5cb5a0130dc630c8d04347e60a0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaJogo</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo)</td></tr>
+<tr class="separator:ae4d0d5cb5a0130dc630c8d04347e60a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f876f2e89bc6671cdac036248c64127"><td class="memItemLeft" align="right" valign="top"><a id="a4f876f2e89bc6671cdac036248c64127"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imprimeJogo</b> (<a class="el" href="structtJogo.html">tJogo</a> jogo)</td></tr>
+<tr class="separator:a4f876f2e89bc6671cdac036248c64127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42741e0029a930681f84d95766ab4028"><td class="memItemLeft" align="right" valign="top"><a id="a42741e0029a930681f84d95766ab4028"></a>
+<a class="el" href="structtEstatisticas.html">tEstatisticas</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaEstatisticas</b> ()</td></tr>
+<tr class="separator:a42741e0029a930681f84d95766ab4028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac742073f1379a09d7b890f8138aec561"><td class="memItemLeft" align="right" valign="top"><a id="ac742073f1379a09d7b890f8138aec561"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireQtdMovimentos</b> (<a class="el" href="structtEstatisticas.html">tEstatisticas</a> estatisticas)</td></tr>
+<tr class="separator:ac742073f1379a09d7b890f8138aec561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e4e65d7debea399f88014fc2473be8"><td class="memItemLeft" align="right" valign="top"><a id="ae3e4e65d7debea399f88014fc2473be8"></a>
+<a class="el" href="structtEstatisticas.html">tEstatisticas</a>&#160;</td><td class="memItemRight" valign="bottom"><b>atualizaEstatisticas</b> (<a class="el" href="structtEstatisticas.html">tEstatisticas</a> estatisticas, <a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:ae3e4e65d7debea399f88014fc2473be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf588342006f02a0be887aaf13690712"><td class="memItemLeft" align="right" valign="top"><a id="adf588342006f02a0be887aaf13690712"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaEstatisticas</b> (<a class="el" href="structtEstatisticas.html">tEstatisticas</a> estatisticas, char caminhoBase[])</td></tr>
+<tr class="separator:adf588342006f02a0be887aaf13690712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205b816345b835a2ad880f5654a78dd8"><td class="memItemLeft" align="right" valign="top"><a id="a205b816345b835a2ad880f5654a78dd8"></a>
+<a class="el" href="structtMapa.html">tMapa</a>&#160;</td><td class="memItemRight" valign="bottom"><b>leMapa</b> (char caminhoBase[])</td></tr>
+<tr class="separator:a205b816345b835a2ad880f5654a78dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec8d4ea39640ee0a162bf47a32f98069"><td class="memItemLeft" align="right" valign="top"><a id="aec8d4ea39640ee0a162bf47a32f98069"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireLinhas</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:aec8d4ea39640ee0a162bf47a32f98069"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7302b8d3756c94631ca95f864ad4191"><td class="memItemLeft" align="right" valign="top"><a id="af7302b8d3756c94631ca95f864ad4191"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireColunas</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:af7302b8d3756c94631ca95f864ad4191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e190119f08a2d6625357cfa3ac0432"><td class="memItemLeft" align="right" valign="top"><a id="ad2e190119f08a2d6625357cfa3ac0432"></a>
+<a class="el" href="structtCobra.html">tCobra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquireCobra</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:ad2e190119f08a2d6625357cfa3ac0432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa094cd638e419656a1c55b9a4e3e4620"><td class="memItemLeft" align="right" valign="top"><a id="aa094cd638e419656a1c55b9a4e3e4620"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireQtdComida</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:aa094cd638e419656a1c55b9a4e3e4620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01a6a8f1b70b4227c7a2516071e96b9"><td class="memItemLeft" align="right" valign="top"><a id="ad01a6a8f1b70b4227c7a2516071e96b9"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>adquireCel</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:ad01a6a8f1b70b4227c7a2516071e96b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b9ceba5582d34945a771a1d69cce601"><td class="memItemLeft" align="right" valign="top"><a id="a0b9ceba5582d34945a771a1d69cce601"></a>
+<a class="el" href="structtMapa.html">tMapa</a>&#160;</td><td class="memItemRight" valign="bottom"><b>defineCel</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos, char cel)</td></tr>
+<tr class="separator:a0b9ceba5582d34945a771a1d69cce601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b64f5126a04c691719165616eafff3"><td class="memItemLeft" align="right" valign="top"><a id="a62b64f5126a04c691719165616eafff3"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquireParTunel</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:a62b64f5126a04c691719165616eafff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a283478144a72a2a4c5fdbbaf2dc141"><td class="memItemLeft" align="right" valign="top"><a id="a6a283478144a72a2a4c5fdbbaf2dc141"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>estaDentroLimite</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:a6a283478144a72a2a4c5fdbbaf2dc141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa1d31a0747ef8ea728ecadf48b10eef"><td class="memItemLeft" align="right" valign="top"><a id="aaa1d31a0747ef8ea728ecadf48b10eef"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ehPosicaoValida</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:aaa1d31a0747ef8ea728ecadf48b10eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4434ead4d9e5c369517bcba7fbeaec4"><td class="memItemLeft" align="right" valign="top"><a id="ad4434ead4d9e5c369517bcba7fbeaec4"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>transformaPosicaoValida</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:ad4434ead4d9e5c369517bcba7fbeaec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f51e8ce43de725bcd87ee332af60028"><td class="memItemLeft" align="right" valign="top"><a id="a2f51e8ce43de725bcd87ee332af60028"></a>
+<a class="el" href="structtMapa.html">tMapa</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fazMovimento</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, char movimento)</td></tr>
+<tr class="separator:a2f51e8ce43de725bcd87ee332af60028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a9a60d79ab0bd0866576762da69abfc"><td class="memItemLeft" align="right" valign="top"><a id="a1a9a60d79ab0bd0866576762da69abfc"></a>
+<a class="el" href="structtMapa.html">tMapa</a>&#160;</td><td class="memItemRight" valign="bottom"><b>limpaMapa</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:a1a9a60d79ab0bd0866576762da69abfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae169681e7898641e347c94bcada8a44c"><td class="memItemLeft" align="right" valign="top"><a id="ae169681e7898641e347c94bcada8a44c"></a>
+<a class="el" href="structtMapa.html">tMapa</a>&#160;</td><td class="memItemRight" valign="bottom"><b>atualizaMapa</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:ae169681e7898641e347c94bcada8a44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a9fa5d89172c440a8ba90c3d45ae219"><td class="memItemLeft" align="right" valign="top"><a id="a8a9fa5d89172c440a8ba90c3d45ae219"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaHeatmap</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, char caminhoBase[])</td></tr>
+<tr class="separator:a8a9fa5d89172c440a8ba90c3d45ae219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4896f3d60d029f2c74dd43fadfa0c2a"><td class="memItemLeft" align="right" valign="top"><a id="ad4896f3d60d029f2c74dd43fadfa0c2a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>exportaRanking</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa, char caminhoBase[])</td></tr>
+<tr class="separator:ad4896f3d60d029f2c74dd43fadfa0c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24ff8478992e25157b32552e6a8225e"><td class="memItemLeft" align="right" valign="top"><a id="ac24ff8478992e25157b32552e6a8225e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>imprimeMapa</b> (<a class="el" href="structtMapa.html">tMapa</a> mapa)</td></tr>
+<tr class="separator:ac24ff8478992e25157b32552e6a8225e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25292554b9fcb74a0d90b85d8a1fe713"><td class="memItemLeft" align="right" valign="top"><a id="a25292554b9fcb74a0d90b85d8a1fe713"></a>
+<a class="el" href="structtCobra.html">tCobra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaCobra</b> (<a class="el" href="structtPosicao.html">tPosicao</a> posCab, char direcaoInicial)</td></tr>
+<tr class="separator:a25292554b9fcb74a0d90b85d8a1fe713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7783d185cb98770c0a73dd8e4e86a84e"><td class="memItemLeft" align="right" valign="top"><a id="a7783d185cb98770c0a73dd8e4e86a84e"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquireCabeca</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:a7783d185cb98770c0a73dd8e4e86a84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb02a4221cf4dd1c4227396e10699dcb"><td class="memItemLeft" align="right" valign="top"><a id="abb02a4221cf4dd1c4227396e10699dcb"></a>
+<a class="el" href="structtFila.html">tFila</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquireCorpo</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:abb02a4221cf4dd1c4227396e10699dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6132fa824e8191098dc8fb5ded277f6b"><td class="memItemLeft" align="right" valign="top"><a id="a6132fa824e8191098dc8fb5ded277f6b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireDirecao</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:a6132fa824e8191098dc8fb5ded277f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b372ef9136dd2248f60b28fe6c0299c"><td class="memItemLeft" align="right" valign="top"><a id="a9b372ef9136dd2248f60b28fe6c0299c"></a>
+<a class="el" href="structtCobra.html">tCobra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>defineDirecao</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra, int direcao)</td></tr>
+<tr class="separator:a9b372ef9136dd2248f60b28fe6c0299c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32090c67a6583c9649d9764764c71c60"><td class="memItemLeft" align="right" valign="top"><a id="a32090c67a6583c9649d9764764c71c60"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>adquireDevorado</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:a32090c67a6583c9649d9764764c71c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155fac77e03be7a335a3964272b67648"><td class="memItemLeft" align="right" valign="top"><a id="a155fac77e03be7a335a3964272b67648"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireEstado</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:a155fac77e03be7a335a3964272b67648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71760b965f8a25ee439c45b92f886e99"><td class="memItemLeft" align="right" valign="top"><a id="a71760b965f8a25ee439c45b92f886e99"></a>
+<a class="el" href="structtCobra.html">tCobra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>defineEstado</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra, int estado)</td></tr>
+<tr class="separator:a71760b965f8a25ee439c45b92f886e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08fcd58a19d169be92900163d3538c1a"><td class="memItemLeft" align="right" valign="top"><a id="a08fcd58a19d169be92900163d3538c1a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireTamanho</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra)</td></tr>
+<tr class="separator:a08fcd58a19d169be92900163d3538c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90aa8ea8b02ac3b0e91e6e659b6df493"><td class="memItemLeft" align="right" valign="top"><a id="a90aa8ea8b02ac3b0e91e6e659b6df493"></a>
+<a class="el" href="structtCobra.html">tCobra</a>&#160;</td><td class="memItemRight" valign="bottom"><b>moveCbr</b> (<a class="el" href="structtCobra.html">tCobra</a> cobra, <a class="el" href="structtPosicao.html">tPosicao</a> pos, char celDevorado)</td></tr>
+<tr class="separator:a90aa8ea8b02ac3b0e91e6e659b6df493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769a54d45b1819ed97a3d0d36e3b607a"><td class="memItemLeft" align="right" valign="top"><a id="a769a54d45b1819ed97a3d0d36e3b607a"></a>
+<a class="el" href="structtFila.html">tFila</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaFila</b> ()</td></tr>
+<tr class="separator:a769a54d45b1819ed97a3d0d36e3b607a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa578c7d3da5976823b656e258f3f5d48"><td class="memItemLeft" align="right" valign="top"><a id="aa578c7d3da5976823b656e258f3f5d48"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireTam</b> (<a class="el" href="structtFila.html">tFila</a> fila)</td></tr>
+<tr class="separator:aa578c7d3da5976823b656e258f3f5d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76deb32a797a5e351bf53ee9bba07545"><td class="memItemLeft" align="right" valign="top"><a id="a76deb32a797a5e351bf53ee9bba07545"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquireElem</b> (<a class="el" href="structtFila.html">tFila</a> fila, int index)</td></tr>
+<tr class="separator:a76deb32a797a5e351bf53ee9bba07545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4afe0fd81a30c00b7e5a5fc2feb3375e"><td class="memItemLeft" align="right" valign="top"><a id="a4afe0fd81a30c00b7e5a5fc2feb3375e"></a>
+<a class="el" href="structtFila.html">tFila</a>&#160;</td><td class="memItemRight" valign="bottom"><b>enfileira</b> (<a class="el" href="structtFila.html">tFila</a> fila, <a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:a4afe0fd81a30c00b7e5a5fc2feb3375e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10b1883b1e74c70c115434b80b377fb0"><td class="memItemLeft" align="right" valign="top"><a id="a10b1883b1e74c70c115434b80b377fb0"></a>
+<a class="el" href="structtFila.html">tFila</a>&#160;</td><td class="memItemRight" valign="bottom"><b>desenfileira</b> (<a class="el" href="structtFila.html">tFila</a> fila)</td></tr>
+<tr class="separator:a10b1883b1e74c70c115434b80b377fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a9f078ba78f02d0502a3182c3966fcd"><td class="memItemLeft" align="right" valign="top"><a id="a7a9f078ba78f02d0502a3182c3966fcd"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaPosicao</b> (int i, int j)</td></tr>
+<tr class="separator:a7a9f078ba78f02d0502a3182c3966fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab57e4012eeb45d779c844f09e3744a4b"><td class="memItemLeft" align="right" valign="top"><a id="ab57e4012eeb45d779c844f09e3744a4b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireI</b> (<a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:ab57e4012eeb45d779c844f09e3744a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376d953a5873fe16e1d8b019a29e4965"><td class="memItemLeft" align="right" valign="top"><a id="a376d953a5873fe16e1d8b019a29e4965"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireJ</b> (<a class="el" href="structtPosicao.html">tPosicao</a> pos)</td></tr>
+<tr class="separator:a376d953a5873fe16e1d8b019a29e4965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a909183a9bb057382be62e5dc30ae9175"><td class="memItemLeft" align="right" valign="top"><a id="a909183a9bb057382be62e5dc30ae9175"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>alteraPeloDelta</b> (<a class="el" href="structtPosicao.html">tPosicao</a> pos, int dI, int dJ)</td></tr>
+<tr class="separator:a909183a9bb057382be62e5dc30ae9175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9522a7afb4e5ccb714ca8562a3819cb4"><td class="memItemLeft" align="right" valign="top"><a id="a9522a7afb4e5ccb714ca8562a3819cb4"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>avancaNaDirecao</b> (<a class="el" href="structtPosicao.html">tPosicao</a> pos, int direcao)</td></tr>
+<tr class="separator:a9522a7afb4e5ccb714ca8562a3819cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9085eb77be004b526274e001ff8c1b"><td class="memItemLeft" align="right" valign="top"><a id="a8c9085eb77be004b526274e001ff8c1b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>comparaPos</b> (<a class="el" href="structtPosicao.html">tPosicao</a> pos1, <a class="el" href="structtPosicao.html">tPosicao</a> pos2)</td></tr>
+<tr class="separator:a8c9085eb77be004b526274e001ff8c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Jogo snake contruido em C. </p>
+<dl class="section author"><dt>Autor</dt><dd>Jheam Storch Ross </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2022-08-11</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2022 </dd></dl>
+</div><h2 class="groupheader">Definições e macros</h2>
+<a id="a2ef6663ecb63d7087872715ec851b198"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ef6663ecb63d7087872715ec851b198">&#9670;&nbsp;</a></span>TAM_CAMINHO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAM_CAMINHO&#160;&#160;&#160;1001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Contem o tamanho maximo para um caminho suportado pelo programa. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="a971197219696ffbc1a139a4eb40804c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a971197219696ffbc1a139a4eb40804c6">&#9670;&nbsp;</a></span>combinaCaminho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void combinaCaminho </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>dest</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>cmnh1</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>cmnh2</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Combina os caminhos <code>cmnh1</code> e <code>cmnh2</code> no caminho <code>dest</code>. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Caminho que resulta da combinacao dos caminhos <code>cmnh1</code> e <code>cmnh2</code> </td></tr>
+    <tr><td class="paramname">cmnh1</td><td>Caminho que precedera o caminho <code>cmnh2</code> </td></tr>
+    <tr><td class="paramname">cmnh2</td><td>Caminho que sucedera o caminho <code>cmnh1</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

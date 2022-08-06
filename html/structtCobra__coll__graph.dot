@@ -1,0 +1,11 @@
+digraph "tCobra"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="tCobra",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Representa a cobra no mapa."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" corpo" ,fontname="Helvetica"];
+  Node2 [label="tFila",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtFila.html",tooltip="Representa uma estrultura de dados fila, de fluxo FIFO."];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vet" ,fontname="Helvetica"];
+  Node3 [label="tPosicao",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtPosicao.html",tooltip="Representa uma posicao em uma matriz bidimensional."];
+}

@@ -642,19 +642,62 @@ typedef struct {
     char caminhoSaida[TAM_CAMINHO]; ///< O caminho de saida para os arquivos do jogo
 } tJogo;
 /**
- * @brief 
+ * @brief Inicializa uma struct do tipo @ref tJogo no diretorio @p caminhoBase
  * 
- * @param caminhoBase 
- * @return tJogo 
+ * @param caminhoBase O diretorio onde o jogo ocorre e todos os seus dados estao
+ * @return tJogo Uma nova instancia de @ref tJogo
  * @related tJogo
  */
 tJogo inicializaJogo(char caminhoBase[]);
+/**
+ * @brief Verifica se o jogo terminou ou nao
+ * 
+ * @param jogo O @ref tJogo
+ * @return int Verdadeiro, se o jogo acabou; do contrario, falso
+ * @related tJogo
+ */
 int acabou(tJogo jogo);
+/**
+ * @brief Efetua a rodada do @ref tJogo @p jogo com o @p movimento
+ * 
+ * @param jogo O @ref tJogo
+ * @param movimento O movimento que sera feito na rodada
+ * @return tJogo O novo estado do @p jogo ao fim da rodada
+ * @related tJogo
+ */
 tJogo fazRodada(tJogo jogo, char movimento);
-void geraArqInicializacao(tJogo jogo, char caminhoBase[]);
+/**
+ * @brief Exporta o arquivo de inicializacao do @ref tJogo para o arquivo @ref ARQ_INIC
+ * 
+ * @param jogo O @ref tJogo
+ * @related tJogo
+ */
+void exportaInicializacao(tJogo jogo);
+/**
+ * @brief Exporta o resumo do evento ocorrido no @ref tJogo @p jogo com o @p movimento para o arquivo @ref ARQ_RESM
+ * 
+ * @param jogo O @ref tJogo
+ * @param currMov A numero desse movimento
+ * @param cobra A @ref tCobra do jogo
+ * @param movimento O movimento efetuado - como @ref MOV_CBRCT , @ref MOV_CBRHO e @ref MOV_CBRAH
+ * @related tJogo
+ */
 void exportaResumo(tJogo jogo, int currMov, tCobra cobra, char movimento);
-void exportaJogo(tJogo jogo, char caminhoBase[]);
+/**
+ * @brief Exporta todos os dados do jogo - como o heatmap, estatisticas e ranking
+ * 
+ * @param jogo O @ref tJogo
+ * @related tJogo
+ */
+void exportaJogo(tJogo jogo);
+/**
+ * @brief Imprime o @ref tJogo @p jogo para a saida padrao
+ * 
+ * @param jogo O @ref tJogo
+ * @related tJogo
+ */
 void imprimeJogo(tJogo jogo);
+
 // FIM JOGO
 
 int main(int argc, char const *argv[]) {
@@ -668,7 +711,7 @@ int main(int argc, char const *argv[]) {
     
     tJogo jogo = inicializaJogo(caminhoBase);
     
-    geraArqInicializacao(jogo, jogo.caminhoSaida);
+    exportaInicializacao(jogo);
     do {
         char movimento;
         scanf("%c%*c", &movimento);
@@ -680,7 +723,7 @@ int main(int argc, char const *argv[]) {
         imprimeJogo(jogo);
     } while (!acabou(jogo));
 
-    exportaJogo(jogo, jogo.caminhoSaida);
+    exportaJogo(jogo);
 
     return EXIT_SUCCESS;
 }
@@ -762,9 +805,9 @@ void exportaResumo(tJogo jogo, int currMov, tCobra cobra, char movimento) {
     fclose(arq);
 }
 
-void geraArqInicializacao(tJogo jogo, char caminhoBase[]) {
+void exportaInicializacao(tJogo jogo) {
     char caminhoInic[TAM_CAMINHO];
-    combinaCaminho(caminhoInic, caminhoBase, ARQ_INIC);
+    combinaCaminho(caminhoInic, jogo.caminhoSaida, ARQ_INIC);
     FILE *arq = fopen(caminhoInic, "w");
 
     int i;
@@ -781,10 +824,10 @@ void geraArqInicializacao(tJogo jogo, char caminhoBase[]) {
     fclose(arq);
 }
 
-void exportaJogo(tJogo jogo, char caminhoBase[]) {
-    exportaEstatisticas(jogo.estatisticas, caminhoBase);
-    exportaHeatmap(jogo.mapa, caminhoBase);
-    exportaRanking(jogo.mapa, caminhoBase);
+void exportaJogo(tJogo jogo) {
+    exportaEstatisticas(jogo.estatisticas, jogo.caminhoSaida);
+    exportaHeatmap(jogo.mapa, jogo.caminhoSaida);
+    exportaRanking(jogo.mapa, jogo.caminhoSaida);
 }
 
 void imprimeJogo(tJogo jogo) {

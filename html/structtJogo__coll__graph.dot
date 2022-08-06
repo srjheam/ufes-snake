@@ -1,0 +1,18 @@
+digraph "tJogo"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="tJogo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Representa o jogo snake."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" mapa" ,fontname="Helvetica"];
+  Node2 [label="tMapa",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtMapa.html",tooltip="Representa o mapa no jogo."];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" tuneis" ,fontname="Helvetica"];
+  Node3 [label="tFila",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtFila.html",tooltip="Representa uma estrultura de dados fila, de fluxo FIFO."];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" vet" ,fontname="Helvetica"];
+  Node4 [label="tPosicao",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtPosicao.html",tooltip="Representa uma posicao em uma matriz bidimensional."];
+  Node5 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" cobra" ,fontname="Helvetica"];
+  Node5 [label="tCobra",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtCobra.html",tooltip="Representa a cobra no mapa."];
+  Node3 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" corpo" ,fontname="Helvetica"];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" estatisticas" ,fontname="Helvetica"];
+  Node6 [label="tEstatisticas",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structtEstatisticas.html",tooltip="Representa as estatisticas do jogo."];
+}
