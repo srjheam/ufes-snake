@@ -93,6 +93,71 @@ tPosicao avancaNaDirecao(tPosicao pos, int direcao);
 int comparaPos(tPosicao pos1, tPosicao pos2);
 
 // FIM POSICAO
+// RANK
+
+/**
+ * @brief Representa um rank no ranking, semelhante a uma estrultura de dados chave e valor
+ * 
+ */
+typedef struct {
+    tPosicao posicao; ///< A posicao do rank
+    int heat; ///< O indice heat do rank
+} tRank;
+/**
+ * @brief Inicializa uma struct de tipo @ref tRank com @ref tPosicao @p posicao e @p heat
+ * 
+ * @param posicao A @ref tPosicao
+ * @param heat O indice de heat
+ * @return tRank 
+ * @related tRank
+ */
+tRank inicializaRank(tPosicao posicao, int heat);
+/**
+ * @brief Adquire a @ref tPosicao do @ref tRank @p rank
+ * 
+ * @param rank O @ref tRank
+ * @return tPosicao A @ref tPosicao do @p rank
+ * @related tRank
+ */
+tPosicao adquirePosicao(tRank rank);
+/**
+ * @brief Adquire o indice heat do @ref tRank @p rank
+ * 
+ * @param rank O @ref tRank
+ * @return int O indice heat do @p rank
+ * @related tRank
+ */
+int adquireHeat(tRank rank);
+/**
+ * @brief Ordena o ranking de @ref tRank entre os indices @p e e @p d
+ * 
+ * @param ranking O ranking de @ref tRank
+ * @param e O indice do primeiro elemento da subsequencia a ser ordenada
+ * @param d O indice do ultimo elemento da subsequencia a ser ordenada
+ * @related tRank
+ */
+void ordenaRanking(tRank ranking[], int d, int e);
+/**
+ * @brief Mescla ordenando as fatidas [d, m] e (m, e] no ranking
+ * 
+ * @param ranking O ranking onde as fatias serao ordenadas
+ * @param d O index de inicio da primeira fatia
+ * @param m O index de limite entre as fatias
+ * @param e O index de fim da segunda fatia
+ * @related tRank
+ */
+void mesclaRanking(tRank ranking[], int d, int m, int e);
+/**
+ * @brief Compara dois @ref tRank @p rank1 e @p rank2
+ * 
+ * @param rank1 O @ref tRank que sera comparado com @p rank2
+ * @param rank2 O @ref tRank que sera comparado com @p rank1
+ * @return tRank 1, caso @p rank1 seja maior que @p rank2; 0, caso seja iguais; -1, caso @p rank1 seja menor que @p rank2
+ * @related tRank
+ */
+int comparaRank(tRank rank1, tRank rank2);
+
+// FIM RANK
 // FILA
 
 /**
@@ -1110,44 +1175,28 @@ void exportaHeatmap(tMapa mapa, char caminhoBase[]) {
 }
 
 void exportaRanking(tMapa mapa, char caminhoBase[]) {
-    tPosicao posicoes[mapa.nLinhas * mapa.mColunas];
-    int heats[mapa.nLinhas * mapa.mColunas];
+    tRank ranking[mapa.nLinhas * mapa.mColunas];
     int tam = 0;
     
     // planifica heatmap
     int i;
     for (i = 0; i < mapa.nLinhas; i++) {
         int j;
-        for (j = 0; j < mapa.mColunas; j++) {
-            if (mapa.heatmap[i][j] > 0) {
-                posicoes[tam] = inicializaPosicao(i, j);
-                heats[tam] = mapa.heatmap[i][j];
-                tam++;
-            }
-        }
+        for (j = 0; j < mapa.mColunas; j++)
+            if (mapa.heatmap[i][j] > 0)
+                ranking[tam++] = inicializaRank(inicializaPosicao(i, j), mapa.heatmap[i][j]);
     }
 
-    // ordena o ranking
-    for (i = 1; i < tam; i++) {
-        if (heats[i] > heats[i - 1]) {
-            tPosicao tmpPos = posicoes[i];
-            int tmpHeat = heats[i];
-            posicoes[i] = posicoes[i - 1];
-            heats[i] = heats[i - 1];
-            posicoes[i - 1] = tmpPos;
-            heats[i - 1] = tmpHeat;
-
-            i = 0;
-        }
-    }
+    ordenaRanking(ranking, 0, tam - 1);
 
     // exporta
     char caminhoRank[TAM_CAMINHO];
     combinaCaminho(caminhoRank, caminhoBase, ARQ_RANK);
     FILE *arq = fopen(caminhoRank, "w");
     for (i = 0; i < tam; i++) {
-        tPosicao curr = posicoes[i];
-        fprintf(arq, "(%d, %d) - %d\n", adquireI(curr), adquireJ(curr), heats[i]);
+        tRank curr = ranking[i];
+        tPosicao currPos = adquirePosicao(curr);
+        fprintf(arq, "(%d, %d) - %d\n", adquireI(currPos), adquireJ(currPos), adquireHeat(curr));
     }
 
     fclose(arq);
@@ -1288,6 +1337,102 @@ tFila desenfileira(tFila fila) {
     return fila;
 }
 // FIM FILA
+
+// RANK
+tRank inicializaRank(tPosicao posicao, int heat) {
+    tRank rank = { posicao, heat };
+    return rank;
+}
+
+tPosicao adquirePosicao(tRank rank) {
+    return rank.posicao;
+}
+
+int adquireHeat(tRank rank) {
+    return rank.heat;
+}
+
+// CODIGO ROUBADO DAS INTERWEBS!!!!
+void ordenaRanking(tRank ranking[], int d, int e) {
+    if (d >= e)
+        return;
+
+    int m = d + (e - d) / 2;
+    ordenaRanking(ranking, d, m);
+    ordenaRanking(ranking, m + 1, e);
+    mesclaRanking(ranking, d, m, e);
+}
+
+void mesclaRanking(tRank ranking[], int d, int m, int e) {
+    int t1 = m - d + 1;
+    int t2 = e - m;
+    // Cria vetores temporarios
+    tRank vetE[t1], vetD[t2];
+
+    // Copia as fatias do ranking para os vetores temporarios
+    int i;
+    for (i = 0; i < t1; i++)
+        vetE[i] = ranking[d + i];
+
+    int j;
+    for (j = 0; j < t2; j++)
+        vetD[j] = ranking[m + 1 + j];
+
+    // Mescla os vetores temporarios
+    i = 0;
+    j = 0;
+    int k;
+    for (k = d; i < t1 && j < t2; k++) {
+        // ordena de forma decrescente de rank
+        if (comparaRank(vetE[i], vetD[j]) >= 0) {
+            ranking[k] = vetE[i];
+            i++;
+        }
+        else {
+            ranking[k] = vetD[j];
+            j++;
+        }
+    }
+
+    // Insere os elementos remanescentes de vetE[] em ranking
+    while (i < t1) {
+        ranking[k] = vetE[i];
+        i++;
+        k++;
+    }
+    // Insere os elementos remanescentes de vetE[] em ranking
+    while (j < t2) {
+        ranking[k] = vetD[j];
+        j++;
+        k++;
+    }
+}
+// FIM CODIGO ROUBADO DAS INTERWEBS!!!!
+
+int comparaRank(tRank rank1, tRank rank2) {
+    if (rank1.heat > rank2.heat)
+        return 1;
+    
+    if (rank1.heat < rank2.heat)
+        return -1;
+
+    if (adquireI(rank1.posicao) <= adquireI(rank2.posicao)) {
+        if (adquireI(rank1.posicao) < adquireI(rank2.posicao))
+            return 1;
+
+        if (adquireJ(rank1.posicao) <= adquireJ(rank2.posicao)) {
+            if (adquireJ(rank1.posicao) < adquireJ(rank2.posicao))
+                return 1;
+            
+            return 0;
+        }
+
+        return -1;
+    }
+
+    return -1;
+}
+// FIM RANK
 
 // POSICAO
 tPosicao inicializaPosicao(int i, int j) {

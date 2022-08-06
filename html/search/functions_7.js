@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lemapa_178',['leMapa',['../structtMapa.html#a205b816345b835a2ad880f5654a78dd8',1,'tMapa']]],
-  ['limpamapa_179',['limpaMapa',['../structtMapa.html#a1a9a60d79ab0bd0866576762da69abfc',1,'tMapa']]]
+  ['lemapa_192',['leMapa',['../structtMapa.html#a205b816345b835a2ad880f5654a78dd8',1,'tMapa']]],
+  ['limpamapa_193',['limpaMapa',['../structtMapa.html#a1a9a60d79ab0bd0866576762da69abfc',1,'tMapa']]]
 ];

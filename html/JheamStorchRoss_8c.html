@@ -86,6 +86,9 @@ Componentes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtPosicao.html">tPosicao</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa uma posicao em uma matriz bidimensional.  <a href="structtPosicao.html#details">Mais...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtRank.html">tRank</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa um rank no ranking, semelhante a uma estrultura de dados chave e valor.  <a href="structtRank.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtFila.html">tFila</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representa uma estrultura de dados fila, de fluxo FIFO.  <a href="structtFila.html#details">Mais...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -245,6 +248,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireTam</b> (<a cla
 <tr class="memitem:a10b1883b1e74c70c115434b80b377fb0"><td class="memItemLeft" align="right" valign="top"><a id="a10b1883b1e74c70c115434b80b377fb0"></a>
 <a class="el" href="structtFila.html">tFila</a>&#160;</td><td class="memItemRight" valign="bottom"><b>desenfileira</b> (<a class="el" href="structtFila.html">tFila</a> fila)</td></tr>
 <tr class="separator:a10b1883b1e74c70c115434b80b377fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a01ac54eb3a6d60e45a8a603b77a55"><td class="memItemLeft" align="right" valign="top"><a id="af3a01ac54eb3a6d60e45a8a603b77a55"></a>
+<a class="el" href="structtRank.html">tRank</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaRank</b> (<a class="el" href="structtPosicao.html">tPosicao</a> posicao, int heat)</td></tr>
+<tr class="separator:af3a01ac54eb3a6d60e45a8a603b77a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1944b1aa23c6251092cbc5c15ab50ce"><td class="memItemLeft" align="right" valign="top"><a id="ac1944b1aa23c6251092cbc5c15ab50ce"></a>
+<a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>adquirePosicao</b> (<a class="el" href="structtRank.html">tRank</a> rank)</td></tr>
+<tr class="separator:ac1944b1aa23c6251092cbc5c15ab50ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505982e751afb2285a407f343f7cb41c"><td class="memItemLeft" align="right" valign="top"><a id="a505982e751afb2285a407f343f7cb41c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>adquireHeat</b> (<a class="el" href="structtRank.html">tRank</a> rank)</td></tr>
+<tr class="separator:a505982e751afb2285a407f343f7cb41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84cba054e741be24fc2021d6ac76948"><td class="memItemLeft" align="right" valign="top"><a id="ac84cba054e741be24fc2021d6ac76948"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ordenaRanking</b> (<a class="el" href="structtRank.html">tRank</a> ranking[], int d, int e)</td></tr>
+<tr class="separator:ac84cba054e741be24fc2021d6ac76948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4406e510249c886ad34a9aadd552ae57"><td class="memItemLeft" align="right" valign="top"><a id="a4406e510249c886ad34a9aadd552ae57"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>mesclaRanking</b> (<a class="el" href="structtRank.html">tRank</a> ranking[], int d, int m, int e)</td></tr>
+<tr class="separator:a4406e510249c886ad34a9aadd552ae57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee6cefb8981fdf5c58f96c636f132705"><td class="memItemLeft" align="right" valign="top"><a id="aee6cefb8981fdf5c58f96c636f132705"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>comparaRank</b> (<a class="el" href="structtRank.html">tRank</a> rank1, <a class="el" href="structtRank.html">tRank</a> rank2)</td></tr>
+<tr class="separator:aee6cefb8981fdf5c58f96c636f132705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a9f078ba78f02d0502a3182c3966fcd"><td class="memItemLeft" align="right" valign="top"><a id="a7a9f078ba78f02d0502a3182c3966fcd"></a>
 <a class="el" href="structtPosicao.html">tPosicao</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inicializaPosicao</b> (int i, int j)</td></tr>
 <tr class="separator:a7a9f078ba78f02d0502a3182c3966fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>

@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['tam_103',['tam',['../structtFila.html#ab6eba4711a814c0a4c3ba9d822d4b040',1,'tFila']]],
-  ['tam_5fcaminho_104',['TAM_CAMINHO',['../JheamStorchRoss_8c.html#a2ef6663ecb63d7087872715ec851b198',1,'JheamStorchRoss.c']]],
-  ['tam_5ffila_105',['TAM_FILA',['../structtFila.html#a495c89523983b7d75319f0988a544c67',1,'tFila']]],
-  ['tam_5fmapa_106',['TAM_MAPA',['../structtMapa.html#a8e49ea8fee6d715bd615cb4099480c08',1,'tMapa']]],
-  ['tcobra_107',['tCobra',['../structtCobra.html',1,'']]],
-  ['testatisticas_108',['tEstatisticas',['../structtEstatisticas.html',1,'']]],
-  ['tfila_109',['tFila',['../structtFila.html',1,'']]],
-  ['tjogo_110',['tJogo',['../structtJogo.html',1,'']]],
-  ['tmapa_111',['tMapa',['../structtMapa.html',1,'']]],
-  ['tposicao_112',['tPosicao',['../structtPosicao.html',1,'']]],
-  ['transformaposicaovalida_113',['transformaPosicaoValida',['../structtMapa.html#a248bedfdfdf7ae7da8a5e23bed2c5f43',1,'tMapa']]],
-  ['tuneis_114',['tuneis',['../structtMapa.html#a441e92a27adaf6eea3ee56040a41f14a',1,'tMapa']]]
+  ['qtdcomida_104',['qtdComida',['../structtMapa.html#ac0d54c80104c9f7d5d784e171efa06b5',1,'tMapa']]],
+  ['qtdmov_105',['qtdMov',['../structtEstatisticas.html#a66dc602aca219d39ad8bfe5a0b8b244b',1,'tEstatisticas']]],
+  ['qtdmovb_106',['qtdMovB',['../structtEstatisticas.html#ae44be95d026a209e7e13bf5c507cba87',1,'tEstatisticas']]],
+  ['qtdmovc_107',['qtdMovC',['../structtEstatisticas.html#a3f00ec8283107f048e3878bbd8c00226',1,'tEstatisticas']]],
+  ['qtdmovd_108',['qtdMovD',['../structtEstatisticas.html#a9efa68f0e29c850e3822ed7d6159da83',1,'tEstatisticas']]],
+  ['qtdmove_109',['qtdMovE',['../structtEstatisticas.html#a19c7ed24669a22cb7227d53b0d8aec44',1,'tEstatisticas']]],
+  ['qtdnpntmov_110',['qtdNPntMov',['../structtEstatisticas.html#aeb801fb2525dd063f5a84d3a37c7b77b',1,'tEstatisticas']]]
 ];
