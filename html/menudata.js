@@ -50,13 +50,18 @@ var menudata={children:[
 {text:"e",url:"functions_func.html#index_e"},
 {text:"f",url:"functions_func.html#index_f"},
 {text:"i",url:"functions_func.html#index_i"},
-{text:"j",url:"functions_func.html#index_j"},
 {text:"l",url:"functions_func.html#index_l"},
 {text:"m",url:"functions_func.html#index_m"},
 {text:"o",url:"functions_func.html#index_o"},
 {text:"t",url:"functions_func.html#index_t"}]},
 {text:"Variáveis",url:"functions_vars.html"},
-{text:"Funções Relacionadas",url:"functions_rela.html"}]}]},
+{text:"Funções Relacionadas",url:"functions_rela.html",children:[
+{text:"a",url:"functions_rela.html#index_a"},
+{text:"c",url:"functions_rela.html#index_c"},
+{text:"d",url:"functions_rela.html#index_d"},
+{text:"j",url:"functions_rela.html#index_j"},
+{text:"m",url:"functions_rela.html#index_m"},
+{text:"t",url:"functions_rela.html#index_t"}]}]}]},
 {text:"Arquivos",url:"files.html",children:[
 {text:"Lista de Arquivos",url:"files.html"},
 {text:"Membros dos Arquivos",url:"globals.html",children:[

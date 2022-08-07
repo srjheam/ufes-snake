@@ -21,10 +21,7 @@ var searchData=
   ['adquiretam_151',['adquireTam',['../structtFila.html#aa578c7d3da5976823b656e258f3f5d48',1,'tFila']]],
   ['adquiretamanho_152',['adquireTamanho',['../structtCobra.html#a08fcd58a19d169be92900163d3538c1a',1,'tCobra']]],
   ['alterapelodelta_153',['alteraPeloDelta',['../structtPosicao.html#a909183a9bb057382be62e5dc30ae9175',1,'tPosicao']]],
-  ['arq_5finic_154',['ARQ_INIC',['../structtJogo.html#a2fce629160a461aff286bc5a8b29d513',1,'tJogo']]],
-  ['arq_5fresm_155',['ARQ_RESM',['../structtJogo.html#a5fcddec05f178eea0c531fc0207f6571',1,'tJogo']]],
-  ['arq_5fstts_156',['ARQ_STTS',['../structtEstatisticas.html#aa16d076a1fefba07e8543e5ffc12defb',1,'tEstatisticas']]],
-  ['atualizaestatisticas_157',['atualizaEstatisticas',['../structtEstatisticas.html#ae3e4e65d7debea399f88014fc2473be8',1,'tEstatisticas']]],
-  ['atualizamapa_158',['atualizaMapa',['../structtMapa.html#ae169681e7898641e347c94bcada8a44c',1,'tMapa']]],
-  ['avancanadirecao_159',['avancaNaDirecao',['../structtPosicao.html#a9522a7afb4e5ccb714ca8562a3819cb4',1,'tPosicao']]]
+  ['atualizaestatisticas_154',['atualizaEstatisticas',['../structtEstatisticas.html#ae3e4e65d7debea399f88014fc2473be8',1,'tEstatisticas']]],
+  ['atualizamapa_155',['atualizaMapa',['../structtMapa.html#ae169681e7898641e347c94bcada8a44c',1,'tMapa']]],
+  ['avancanadirecao_156',['avancaNaDirecao',['../structtPosicao.html#a9522a7afb4e5ccb714ca8562a3819cb4',1,'tPosicao']]]
 ];

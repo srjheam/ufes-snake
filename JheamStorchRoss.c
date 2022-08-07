@@ -521,13 +521,7 @@ tPosicao adquireParTunel(tMapa mapa, tPosicao pos);
  * @brief Verifica se a @ref tPosicao @p pos esta dentro do @ref tMapa @p mapa
  * 
  * @param mapa O @ref tMapa
- * @param pos A @r/**
- * @brief Exporta o ranking do @ref tMapa @p mapa para o arquivo @ref ARQ_RANK no diretorio @p caminhoBase
- * 
- * @param mapa O @ref tMapa
- * @param caminhoBase O diretorio para onde sera salvo o ranking
- * @related tMapa
- * tPosicao que pode,  ou nao, estar dentro do @ref tMapa
+ * @param pos A posicao
  * @return int Verdadeiro, se @p pos esta dentros dos limites do @p mapa ; caso contrario, falso
  * @related tMapa
  */
@@ -816,6 +810,7 @@ tJogo fazRodada(tJogo jogo, char movimento) {
 
     tCobra cbr = adquireCobra(jogo.mapa);
 
+    // atualiza a pontuacao do jogo
     char devorado = adquireDevorado(cbr);
     if (devorado == CEL_DINHR) {
         jogo.pontuacao += JOG_PNT_D;
@@ -826,6 +821,7 @@ tJogo fazRodada(tJogo jogo, char movimento) {
 
     jogo.mapa = atualizaMapa(jogo.mapa);
 
+    // atualiza o estado do jogo
     if (adquireEstado(cbr) == CBR_EST_M) {
         jogo.estado = JOG_EST_D;
     }
@@ -1073,8 +1069,7 @@ tPosicao transformaPosicaoValida(tMapa mapa, tPosicao pos) {
     }
     
     // corrige a posicao para dentro dos limites
-    pos = inicializaPosicao(abs((mapa.nLinhas + adquireI(pos)) % mapa.nLinhas), adquireJ(pos));
-    pos = inicializaPosicao(adquireI(pos), abs((mapa.mColunas + adquireJ(pos)) % mapa.mColunas));
+    pos = inicializaPosicao(abs((mapa.nLinhas + adquireI(pos)) % mapa.nLinhas), abs((mapa.mColunas + adquireJ(pos)) % mapa.mColunas));
     
     // trata o eventual teleporte da cobra pelos tuneis
     if (adquireCel(mapa, pos) == CEL_TUNEL) {
@@ -1084,10 +1079,12 @@ tPosicao transformaPosicaoValida(tMapa mapa, tPosicao pos) {
         pos = avancaNaDirecao(pos, direcao);
     }
 
+    // faz uma chamada recursiva para a funcao
     return transformaPosicaoValida(mapa, pos);
 }
 
 tMapa fazMovimento(tMapa mapa, char movimento) {
+    // delta da direcao
     int dD = 0;
     if (movimento == MOV_CBRHO)
         dD = 1;
@@ -1102,11 +1099,13 @@ tMapa fazMovimento(tMapa mapa, char movimento) {
 
     posDest = transformaPosicaoValida(mapa, posDest);
     
+    // atualiza a qtd de comida no mapa
     char cbrDevorou = adquireCel(mapa, posDest);
     if (cbrDevorou == CEL_COMID) {
         mapa.qtdComida--;
     }
     mapa.cobra = moveCbr(mapa.cobra, posDest, cbrDevorou);
+    // atualiza o heatmap
     mapa.heatmap[adquireI(posDest)][adquireJ(posDest)] += 1;
     return mapa;
 }
@@ -1115,6 +1114,7 @@ tMapa limpaMapa(tMapa mapa) {
     tFila cbrCorpo = adquireCorpo(mapa.cobra);
     int i;
     for (i = adquireTam(cbrCorpo) - 1; i >= 0; i--) {
+        // posicao do pedaco do corpo da cobra
         tPosicao curr = adquireElem(cbrCorpo, i);
         mapa = defineCel(mapa, curr, CEL_VAZIA);
     }
@@ -1123,12 +1123,16 @@ tMapa limpaMapa(tMapa mapa) {
 
 tMapa atualizaMapa(tMapa mapa) {    
     tFila cbrCorpo = adquireCorpo(mapa.cobra);
+    // atualiza o corpo da cobra, nao a cabeca
     int i;
     for (i = adquireTam(cbrCorpo) - 1; i >= 0; i--) {
+        // posicao do pedaco do corpo da cobra
         tPosicao curr = adquireElem(cbrCorpo, i);
+        // caractere da celula que representa o pedaco do corpo da cobra
         char cbrCh = adquireEstado(mapa.cobra) == CBR_EST_V ? CEL_CBRCO : CEL_CBRCM;
         mapa = defineCel(mapa, curr, cbrCh);
     }
+    // atualiza a cabeca da cobra
     if (adquireEstado(mapa.cobra) == CBR_EST_V) {
         tPosicao curr = adquireCabeca(mapa.cobra);
         char cbrCh;
@@ -1280,12 +1284,14 @@ int adquireTamanho(tCobra cobra) {
 }
 
 tCobra moveCbr(tCobra cobra, tPosicao pos, char celDevorado) {
+    // define novo devorado
     cobra.devorado = celDevorado;
+    // move a cobra
     cobra.corpo = enfileira(cobra.corpo, pos);
     if (celDevorado != CEL_COMID) {
         cobra.corpo = desenfileira(cobra.corpo);
     }
-    
+    // verifica se cobra nao morreu
     if (celDevorado == CEL_PARED) {
         cobra.estado = CBR_EST_M;
     }
@@ -1366,10 +1372,10 @@ void ordenaRanking(tRank ranking[], int d, int e) {
 void mesclaRanking(tRank ranking[], int d, int m, int e) {
     int t1 = m - d + 1;
     int t2 = e - m;
-    // Cria vetores temporarios
+    // cria vetores temporarios
     tRank vetE[t1], vetD[t2];
 
-    // Copia as fatias do ranking para os vetores temporarios
+    // copia as fatias do ranking para os vetores temporarios
     int i;
     for (i = 0; i < t1; i++)
         vetE[i] = ranking[d + i];
@@ -1378,7 +1384,7 @@ void mesclaRanking(tRank ranking[], int d, int m, int e) {
     for (j = 0; j < t2; j++)
         vetD[j] = ranking[m + 1 + j];
 
-    // Mescla os vetores temporarios
+    // mescla os vetores temporarios
     i = 0;
     j = 0;
     int k;
@@ -1394,13 +1400,13 @@ void mesclaRanking(tRank ranking[], int d, int m, int e) {
         }
     }
 
-    // Insere os elementos remanescentes de vetE[] em ranking
+    // insere os elementos remanescentes de vetE[] em ranking
     while (i < t1) {
         ranking[k] = vetE[i];
         i++;
         k++;
     }
-    // Insere os elementos remanescentes de vetE[] em ranking
+    // insere os elementos remanescentes de vetE[] em ranking
     while (j < t2) {
         ranking[k] = vetD[j];
         j++;

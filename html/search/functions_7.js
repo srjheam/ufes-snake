@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['lemapa_192',['leMapa',['../structtMapa.html#a205b816345b835a2ad880f5654a78dd8',1,'tMapa']]],
-  ['limpamapa_193',['limpaMapa',['../structtMapa.html#a1a9a60d79ab0bd0866576762da69abfc',1,'tMapa']]]
+  ['mesclaranking_185',['mesclaRanking',['../structtRank.html#a4406e510249c886ad34a9aadd552ae57',1,'tRank']]],
+  ['movecbr_186',['moveCbr',['../structtCobra.html#a90aa8ea8b02ac3b0e91e6e659b6df493',1,'tCobra']]]
 ];
